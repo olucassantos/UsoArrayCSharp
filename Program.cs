@@ -45,6 +45,32 @@ namespace UsoArray
                 Console.Clear();
             }
 
+            // Função para fazer a ordenação da lista de nomes
+            bool trocarValor;
+            do
+            {
+                for (int index = 0; index < alunos.Length; index++)
+                {
+                    if ((index + 1) >= alunos.Length)
+                    {
+                        // Para o laço de repetição
+                        break;
+                    }
+
+                    string nome = alunos[index];
+                    string prox_nome = alunos[index + 1];
+
+                    if (nome.CompareTo(prox_nome) > 0)
+                    {
+                        alunos[index + 1] = nome;
+                        alunos[index] = prox_nome;
+                        trocarValor = true;
+                    }
+                }
+
+                trocarValor = false;
+            } while (trocarValor);
+
             // Laço de repetição que percorre todos os alunos
             Console.WriteLine($"LISTA DE ALUNOS");
             for (int index = 0; index < alunos.Length; index++)
